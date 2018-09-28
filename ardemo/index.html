@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<script src="js/aframe-v0.8.2.min.js"></script>
+	<script src="js/aframe-ar.js"></script>
+	<script src="js/aframe-extras.loaders.min.js"></script>
+	<script src="js/touchme.js"></script>
+	<link rel="stylesheet" href="styles/style.css">
+
+<body style="margin : 0px; overflow: hidden;">
+
+		<a-scene embedded arjs='trackingMethod: best; patternRatio: 0.9; debugUIEnabled: false; maxDetectionRate:30;' antialias="true">
+			<a-entity id="point_light_1" light="type: point; intensity: 5.1;" position="0 0 0"></a-entity>
+
+			<a-assets>
+			<audio id="roar_sound" src="assets/dino.mp3" response-type="arraybuffer"></audio>
+		    <a-asset-item id="dino" src="assets/scene.gltf"></a-asset-item>
+			</a-assets>
+
+			<a-marker emitevents="true" id="logo-marker" type="pattern" url="markers/pattern-marker.patt" cursor="rayOrigin: mouse" markerhandler>
+
+				<a-entity id="animated-dino" gltf-model="#dino" 
+  							position="0 0 0"
+							rotation="0 0 0"
+							scale="0.001 0.001 0.001"
+							crossOrigin="anonymous"
+							dinoInteractionListener>
+				</a-entity>
+				<a-entity sound="src: #roar_sound; volume: 1; loop: true">
+				</a-entity>
+
+			</a-marker>
+
+			<a-entity camera="active: true; near: 1; far: 1000;" 
+			position="0 0 0" 
+			cursor="rayOrigin: mouse" 
+			data-aframe-default-camera>
+			</a-entity>
+
+			<div id="banner-section" class="banner-section">
+
+				<div>
+						<font face="Baskerville" size="3" color="#FF0000">Look at the target.</font>
+				</div>
+
+			</div>
+
+		</a-scene>
+
+</body>
+</html>

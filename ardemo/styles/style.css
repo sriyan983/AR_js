@@ -1,0 +1,13 @@
+.banner-section {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    color: grey;
+    display: block;
+    height: 850px;
+    margin: 0 auto;
+    text-align: center;
+
+  }
